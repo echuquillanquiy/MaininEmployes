@@ -1,0 +1,40 @@
+<div>
+    <div class="card">
+        <div class="card-header">
+            <input class="form-control w-100" placeholder="Escriba un nombre">
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->phone }}</td>
+                            <td width="10px">
+                                <a class="btn btn-primary" href="{{ route('admin.users.edit', $user) }}">Editar</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="carsd-footer">
+        {{ $users->links() }}
+    </div>
+</div>
